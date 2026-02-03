@@ -97,7 +97,7 @@ template: |
 
   ***
 
-  **Full Changelog**: [$PREVIOUS_TAG...v$RESOLVED_VERSION]($REPOSITORY/compare/$PREVIOUS_TAG...v$RESOLVED_VERSION)
+  **Full Changelog**: [`$PREVIOUS_TAG...v$RESOLVED_VERSION`]($REPOSITORY/compare/$PREVIOUS_TAG...v$RESOLVED_VERSION)
 
 exclude-labels:
   - 'Skip Release'
