@@ -1,0 +1,103 @@
+name-template: 'v$RESOLVED_VERSION'
+tag-template: 'v$RESOLVED_VERSION'
+
+version-resolver:
+  major:
+    labels:
+      - '💥 Breaking Change'
+  minor:
+    labels:
+      - '⭐ Feature'
+  patch:
+    labels:
+      - '🐞 Bug Fix'
+      - '🛠 Improvement'
+      - '📖 Docs'
+      - '🌍 i18n'
+  default: patch
+
+autolabeler:
+  - label: '⭐ Breaking Change'
+    branch:
+      - '/^major\/.+/i'
+      - '/^breaking change\/.+/i'
+    title:
+      - '/\b(major|breaking changes?)\b/i'
+
+  - label: '⭐ Feature'
+    branch:
+      - '/^minor\/.+/i'
+      - '/^feat\/.+/i'
+      - '/^feature\/.+/i'
+    title:
+      - '/\b(minor|feat(ure)?s?)\b/i'
+
+  - label: '🐞 Bug Fix'
+    branch:
+      - '/^patch\/.+/i'
+      - '/^fix\/.+/i'
+      - '/^bugfix\/.+/i'
+    title:
+      - '/\b(bug(fix)?|(hot)?fix(ed|es)?|patch)\b/i'
+
+  - label: '📖 Docs'
+    files:
+      - '*.md'
+      - 'docs/**/*'
+    title:
+      - '/\b(docs|documentation|readme)\b/i'
+
+  - label: '🌍 i18n'
+    files:
+      - 'languages/**/*'
+    title:
+      - '/\b(lang(uage)?s?)\b/i'
+
+  - label: '🛠 Improvement'
+    branch:
+      - '/^chore\/.+/i'
+      - '/^refactor\/.+/i'
+      - '/^style\/.+/i'
+      - '/^test\/.+/i'
+      - '/^ci\/.+/i'
+    title:
+      - '/\b(chore|refactor(ing)?|style|test(s|ing)?|ci)\b/i'
+
+categories:
+  - title: '💥 Breaking Changes'
+    label: '💥 Breaking Change'
+
+  - title: '⭐ Features'
+    label: '⭐ Feature'
+
+  - title: '🐞 Bug Fixes'
+    label: '🐞 Bug Fix'
+
+  - title: '🛠 Improvements'
+    label: '🛠 Improvement'
+
+  - title: '📖 Documentation'
+    label: '📖 Docs'
+
+  - title: '🌍 Localization'
+    label: '🌍 i18n'
+
+  - title: '🌀 External Changes'
+    labels:
+      - '🔌 3rd Party Plugin'
+      - '📦 Dependencies'
+
+change-template: '- $TITLE (#$NUMBER) @$AUTHOR'
+no-changes-template: '- No changes'
+
+template: |
+  ## What's Changed
+
+  $CHANGES
+
+  ***
+
+  **Full Changelog**: [$PREVIOUS_TAG...v$RESOLVED_VERSION]($REPOSITORY/compare/$PREVIOUS_TAG...v$RESOLVED_VERSION)
+
+exclude-labels:
+  - 'Skip Release'
