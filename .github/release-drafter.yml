@@ -19,32 +19,27 @@ version-resolver:
 autolabeler:
   - label: '💥 Breaking Change'
     branch:
-      - '/^major\/.+/i'
-      - '/^breaking change\/.+/i'
+      - '/^(major|breaking-changes?)[\/-][a-z0-9._-]+$/i'
     title:
       - '/\b(major|breaking changes?)\b/i'
 
   - label: '⭐ Feature'
     branch:
-      - '/^(minor|feat(ure)?s?)[\/-][a-z0-9._-]+$/i'
+      - '/^(minor|feat|feature|features)[\/-][a-z0-9._-]+$/i'
     title:
       - '/\b(minor|feat(ure)?s?)\b/i'
 
   - label: '🐞 Bug Fix'
     branch:
-      - '/^(bug(fix)?|(hot)?fix(ed|es)?|patch)[\/-][a-z0-9._-]+$/i'
+      - '/^(bug|bugfix|hotfix|hotfixed|hotfixes|fix|fixed|fixes|patch)[\/-][a-z0-9._-]+$/i'
     title:
       - '/\b(bug(fix)?|(hot)?fix(ed|es)?|patch)\b/i'
 
   - label: '🛠 Improvement'
     branch:
-      - '/^chore\/.+/i'
-      - '/^refactor\/.+/i'
-      - '/^style\/.+/i'
-      - '/^test\/.+/i'
-      - '/^ci\/.+/i'
+      - '/^(chore|refactor|refactored|refactoring|style|test|tests|testing|ci)[\/-][a-z0-9._-]+$/i'
     title:
-      - '/\b(chore|refactor(ing)?|style|test(s|ing)?|ci)\b/i'
+      - '/\b(chore|refactor(ed|ing)?|style|test(s|ing)?|ci)\b/i'
 
   - label: '📖 Docs'
     files:
