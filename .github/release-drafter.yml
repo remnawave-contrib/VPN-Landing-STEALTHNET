@@ -40,6 +40,16 @@ autolabeler:
     title:
       - '/\b(bug(fix)?|(hot)?fix(ed|es)?|patch)\b/i'
 
+  - label: '🛠 Improvement'
+    branch:
+      - '/^chore\/.+/i'
+      - '/^refactor\/.+/i'
+      - '/^style\/.+/i'
+      - '/^test\/.+/i'
+      - '/^ci\/.+/i'
+    title:
+      - '/\b(chore|refactor(ing)?|style|test(s|ing)?|ci)\b/i'
+
   - label: '📖 Docs'
     files:
       - '*.md'
@@ -52,16 +62,6 @@ autolabeler:
       - 'languages/**/*'
     title:
       - '/\b(lang(uage)?s?)\b/i'
-
-  - label: '🛠 Improvement'
-    branch:
-      - '/^chore\/.+/i'
-      - '/^refactor\/.+/i'
-      - '/^style\/.+/i'
-      - '/^test\/.+/i'
-      - '/^ci\/.+/i'
-    title:
-      - '/\b(chore|refactor(ing)?|style|test(s|ing)?|ci)\b/i'
 
 categories:
   - title: '💥 Breaking Changes'
@@ -94,6 +94,8 @@ template: |
   ## What's Changed
 
   $CHANGES
+
+  ---
 
   **Full Changelog**: [`$PREVIOUS_TAG...v$RESOLVED_VERSION`]($REPOSITORY/compare/$PREVIOUS_TAG...v$RESOLVED_VERSION)
 
