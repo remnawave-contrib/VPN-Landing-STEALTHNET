@@ -17,7 +17,7 @@ version-resolver:
   default: patch
 
 autolabeler:
-  - label: '⭐ Breaking Change'
+  - label: '💥 Breaking Change'
     branch:
       - '/^major\/.+/i'
       - '/^breaking change\/.+/i'
