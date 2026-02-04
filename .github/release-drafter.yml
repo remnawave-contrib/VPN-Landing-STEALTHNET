@@ -54,6 +54,13 @@ autolabeler:
     title:
       - '/\b(lang(uage)?s?)\b/i'
 
+  - label: '🌀 External Changes'
+    files:
+      - 'package.json'
+      - 'package-lock.json'
+      - 'pnpm-lock.yaml'
+      - 'yarn.lock'
+
 categories:
   - title: '💥 Breaking Changes'
     label: '💥 Breaking Change'
