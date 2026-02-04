@@ -26,19 +26,25 @@ autolabeler:
 
   - label: '⭐ Feature'
     branch:
-      - '/^minor\/.+/i'
-      - '/^feat\/.+/i'
-      - '/^feature\/.+/i'
+      - '/^(minor|feat(ure)?s?)[\/-][a-z0-9._-]+$/i'
     title:
       - '/\b(minor|feat(ure)?s?)\b/i'
 
   - label: '🐞 Bug Fix'
     branch:
-      - '/^patch\/.+/i'
-      - '/^fix\/.+/i'
-      - '/^bugfix\/.+/i'
+      - '/^(bug(fix)?|(hot)?fix(ed|es)?|patch)[\/-][a-z0-9._-]+$/i'
     title:
       - '/\b(bug(fix)?|(hot)?fix(ed|es)?|patch)\b/i'
+
+  - label: '🛠 Improvement'
+    branch:
+      - '/^chore\/.+/i'
+      - '/^refactor\/.+/i'
+      - '/^style\/.+/i'
+      - '/^test\/.+/i'
+      - '/^ci\/.+/i'
+    title:
+      - '/\b(chore|refactor(ing)?|style|test(s|ing)?|ci)\b/i'
 
   - label: '📖 Docs'
     files:
@@ -52,16 +58,6 @@ autolabeler:
       - 'languages/**/*'
     title:
       - '/\b(lang(uage)?s?)\b/i'
-
-  - label: '🛠 Improvement'
-    branch:
-      - '/^chore\/.+/i'
-      - '/^refactor\/.+/i'
-      - '/^style\/.+/i'
-      - '/^test\/.+/i'
-      - '/^ci\/.+/i'
-    title:
-      - '/\b(chore|refactor(ing)?|style|test(s|ing)?|ci)\b/i'
 
 categories:
   - title: '💥 Breaking Changes'
@@ -94,6 +90,8 @@ template: |
   ## What's Changed
 
   $CHANGES
+
+  ---
 
   **Full Changelog**: [`$PREVIOUS_TAG...v$RESOLVED_VERSION`]($REPOSITORY/compare/$PREVIOUS_TAG...v$RESOLVED_VERSION)
 
