@@ -26,17 +26,13 @@ autolabeler:
 
   - label: '⭐ Feature'
     branch:
-      - '/^minor\/.+/i'
-      - '/^feat\/.+/i'
-      - '/^feature\/.+/i'
+      - '/^(minor|feat(ure)?s?)[\/-][a-z0-9._-]+$/i'
     title:
       - '/\b(minor|feat(ure)?s?)\b/i'
 
   - label: '🐞 Bug Fix'
     branch:
-      - '/^patch\/.+/i'
-      - '/^fix\/.+/i'
-      - '/^bugfix\/.+/i'
+      - '/^(bug(fix)?|(hot)?fix(ed|es)?|patch)[\/-][a-z0-9._-]+$/i'
     title:
       - '/\b(bug(fix)?|(hot)?fix(ed|es)?|patch)\b/i'
 
