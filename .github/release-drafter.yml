@@ -54,7 +54,7 @@ autolabeler:
     title:
       - '/\b(lang(uage)?s?)\b/i'
 
-  - label: '🌀 External Changes'
+  - label: '📦 Dependencies'
     files:
       - 'package.json'
       - 'package-lock.json'
