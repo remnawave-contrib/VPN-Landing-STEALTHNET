@@ -35,32 +35,33 @@ jobs:
               const msg = c.commit.message;
 
               // 💥 Breaking Change
-              if (/\b(major|breaking changes?)\b/i.test(msg) || /BREAKING CHANGE|!:/i.test(msg)) {
+              if (/BREAKING CHANGE|!:/i.test(msg)) {
                 labels.add('💥 Breaking Change');
               }
 
               // ⭐ Feature
-              if (/\b(minor|feat(ure)?s?)\b/i.test(msg)) {
+              if (/\b(feat|feature|add(ed|s|ing)?)\b/i.test(msg)) {
                 labels.add('⭐ Feature');
               }
 
               // 🐞 Bug Fix
+              // Synced with Release Drafter logic
               if (/\b(bug(fix)?|(hot)?fix(ed|es)?|patch)\b/i.test(msg)) {
                 labels.add('🐞 Bug Fix');
               }
 
               // 🛠 Improvement
-              if (/\b(chore|refactor(ed|ing)?|style|test(s|ing)?|ci)\b/i.test(msg)) {
+              if (/\b(chore|refactor|style|test|tests|ci|cleanup|improve(ment|d|s)?)\b/i.test(msg)) {
                 labels.add('🛠 Improvement');
               }
 
               // 📖 Docs
-              if (/\b(docs|documentation|readme)\b/i.test(msg)) {
+              if (/\b(doc|docs|documentation|readme)\b/i.test(msg)) {
                 labels.add('📖 Docs');
               }
 
               // 🌍 i18n
-              if (/\b(lang(uage)?s?)\b/i.test(msg)) {
+              if (/\b(i18n|localization|locale|translate|translation)\b/i.test(msg)) {
                 labels.add('🌍 i18n');
               }
             }
