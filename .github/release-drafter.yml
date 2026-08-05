@@ -50,7 +50,7 @@ change-title-escapes: '\<*_&@#'
 no-changes-template: '- No changes'
 
 template: |
-  ## What's Changed
+  ## What's Changed?
 
   $CHANGES
 
