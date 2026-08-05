@@ -55,7 +55,7 @@ jobs:
               }
 
               // 📖 Docs
-              if (/\b(docs|documentation|readme)\b/i.test(msg)) {
+              if (/\b(docs?|documentation|readme)\b/i.test(msg)) {
                 labels.add('📖 Docs');
               }
 
