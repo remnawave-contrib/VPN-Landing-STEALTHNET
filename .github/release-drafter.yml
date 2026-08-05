@@ -1,50 +1,52 @@
 name-template: 'v$RESOLVED_VERSION'
 tag-template: 'v$RESOLVED_VERSION'
 
-version-resolver:
-  major:
-    labels:
-      - '💥 Breaking Change'
-  minor:
-    labels:
-      - '⭐ Feature'
-  patch:
-    labels:
-      - '🐞 Bug Fix'
-      - '🛠 Improvement'
-      - '📖 Docs'
-      - '🌍 i18n'
-  default: patch
-
 categories:
   - type: pre-exclude
     when:
       label: 'Skip Release'
 
   - title: '💥 Breaking Changes'
-    label: '💥 Breaking Change'
+    semver-increment: major
+    when:
+      label: '💥 Breaking Change'
 
   - title: '⭐ Features'
-    label: '⭐ Feature'
+    semver-increment: minor
+    when:
+      label: '⭐ Feature'
 
   - title: '🐞 Bug Fixes'
-    label: '🐞 Bug Fix'
+    semver-increment: patch
+    when:
+      label: '🐞 Bug Fix'
 
   - title: '🛠 Improvements'
-    label: '🛠 Improvement'
+    semver-increment: patch
+    when:
+      label: '🛠 Improvement'
 
   - title: '📖 Documentation'
-    label: '📖 Docs'
+    semver-increment: patch
+    when:
+      label: '📖 Docs'
 
   - title: '🌍 Localization'
-    label: '🌍 i18n'
+    semver-increment: patch
+    when:
+      label: '🌍 i18n'
 
   - title: '🌀 External Changes'
-    labels:
-      - '🔌 3rd Party Plugin'
-      - '📦 Dependencies'
+    when:
+      labels:
+        - '🔌 3rd Party Plugin'
+        - '📦 Dependencies'
+
+  - type: version-resolver
+    semver-increment: patch
 
 change-template: '- $TITLE (#$NUMBER) @$AUTHOR'
+change-title-escapes: '\<*_&@#'
 no-changes-template: '- No changes'
 
 template: |

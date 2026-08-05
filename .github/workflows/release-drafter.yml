@@ -5,24 +5,15 @@ on:
     branches:
       - main
       - lts
-  pull_request_target:
-    types:
-      - opened
-      - reopened
-      - synchronize
-      - edited
 
 permissions:
-  contents: read
+  contents: write
+  pull-requests: read
 
 jobs:
   update_release_draft:
-    permissions:
-      contents: write
-      pull-requests: write
     runs-on: ubuntu-latest
-
     steps:
       - uses: release-drafter/release-drafter@v7
         with:
-          token: ${{ github.token }}
+          config-name: release-drafter.yml
