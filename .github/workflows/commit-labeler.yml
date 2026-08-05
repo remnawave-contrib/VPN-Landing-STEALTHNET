@@ -11,6 +11,7 @@ permissions:
 jobs:
   label:
     runs-on: ubuntu-latest
+
     steps:
       - name: Label by commit messages
         uses: actions/github-script@v7
@@ -21,7 +22,11 @@ jobs:
 
             const commits = await github.paginate(
               github.rest.pulls.listCommits,
-              { owner, repo, pull_number: pr.number }
+              {
+                owner,
+                repo,
+                pull_number: pr.number,
+              }
             );
 
             const labels = new Set();
@@ -29,22 +34,34 @@ jobs:
             for (const c of commits) {
               const msg = c.commit.message;
 
-              if (/BREAKING CHANGE|!:/.test(msg)) {
+              // 💥 Breaking Change
+              if (/BREAKING CHANGE|!:/i.test(msg)) {
                 labels.add('💥 Breaking Change');
               }
-              if (/^feat(\(.+\))?:/m.test(msg)) {
+
+              // ⭐ Feature
+              if (/\b(feat|feature|add(ed|s|ing)?)\b/i.test(msg)) {
                 labels.add('⭐ Feature');
               }
-              if (/^fix(\(.+\))?:/m.test(msg)) {
+
+              // 🐞 Bug Fix
+              // Synced with Release Drafter logic
+              if (/\b(bug(fix)?|(hot)?fix(ed|es)?|patch)\b/i.test(msg)) {
                 labels.add('🐞 Bug Fix');
               }
-              if (/^(chore|refactor|style|test|ci)(\(.+\))?:/m.test(msg)) {
+
+              // 🛠 Improvement
+              if (/\b(chore|refactor|style|test|tests|ci|cleanup|improve(ment|d|s)?)\b/i.test(msg)) {
                 labels.add('🛠 Improvement');
               }
-              if (/^docs(\(.+\))?:/m.test(msg)) {
+
+              // 📖 Docs
+              if (/\b(doc|docs|documentation|readme)\b/i.test(msg)) {
                 labels.add('📖 Docs');
               }
-              if (/^i18n(\(.+\))?:/m.test(msg)) {
+
+              // 🌍 i18n
+              if (/\b(i18n|localization|locale|translate|translation)\b/i.test(msg)) {
                 labels.add('🌍 i18n');
               }
             }
