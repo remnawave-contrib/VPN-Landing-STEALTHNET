@@ -17,6 +17,10 @@ version-resolver:
   default: patch
 
 categories:
+  - type: pre-exclude
+    when:
+      label: 'Skip Release'
+
   - title: '💥 Breaking Changes'
     label: '💥 Breaking Change'
 
@@ -51,6 +55,3 @@ template: |
   ---
 
   **Full Changelog**: [`$PREVIOUS_TAG...v$RESOLVED_VERSION`]($REPOSITORY/compare/$PREVIOUS_TAG...v$RESOLVED_VERSION)
-
-exclude-labels:
-  - 'Skip Release'
