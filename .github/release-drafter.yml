@@ -54,10 +54,6 @@ template: |
 
   $CHANGES
 
-  ## New Contributors
-
-  $NEW_CONTRIBUTORS
-
   ---
 
   **Full Changelog**: [`$PREVIOUS_TAG...v$RESOLVED_VERSION`]($REPOSITORY/compare/$PREVIOUS_TAG...v$RESOLVED_VERSION)
